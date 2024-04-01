@@ -1,9 +1,22 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
+import './App.css';
+import axios from 'axios'
+
 
 function App () {
-  // create my array of tasks and input variable
-  const [todoList, setToDoList] = useState([]);
-  const [inputTask, setInputTask] = useState('');
+  // // create my array of tasks and input variable
+  // const [todoList, setToDoList] = useState([]);
+  // let [inputTask, setInputTask] = useState('');
+  // let [taskCompletion, setTaskCompletion] = ('false');
+
+  // const addTask = () => {
+  //   axios.post('/api/todo', {task: inputTask, isDone: taskCompletion})
+  //     .then(response => {
+  //       setInputTask = '';
+  //       taskCompletion = '';
+
+  //     })
+  // }
 
 
   
@@ -23,4 +36,4 @@ function App () {
 
 }
 
-export default App
+export default App;
