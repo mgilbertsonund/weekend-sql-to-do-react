@@ -5,34 +5,47 @@ const pool = require('../modules/pool.js');
 // GET
 router.get('/', (req, res) => {
     console.log('In GET request');
-    let queryText = 'SELECT * from "tasks";';
+    const queryText = 'SELECT * FROM todos;';
     pool.query(queryText)
         .then((result) => {
             res.send(result.rows);
         })
-        .error((error) => {
+        .catch((error) => {
             console.log(error);
             res.sendStatus(500);
         })
 });
 
 // POST
-router,post('/', (req, res) => {
-    const task = req.body;
-    const queryText = `INSERT INTO "tasks" 
-    ("task", "isDone") VALUES ($1, $2);`;
-    pool.query(queryText, [task.task, task.idDone])
+router.post('/', (req, res) => {
+    const todo = req.body;
+    const queryText = `INSERT INTO todos
+    ("todo", "isDone") VALUES ($1, $2);`;
+    pool.query(queryText, [todo.todo, todo.idDone])
         .then((result) => {
-            console.log(`Added task to database`, task);
+            console.log(`Added todo to database`, todo);
             res.sendStatus(201);
         })
         .catch((error) => {
-            console.log(`Error making database query ${queryText}`, task);
+            console.log(`Error making database query ${queryText}`, todo);
             res.sendStatus(500);
         })
 })
 
 // PUT
+router.put('./:id', (req, res) => {
+    const queryText = `UPDATE todos SET "isDone" = NOT "isDone
+    WHERE "id" = $1;`;
+    pool.query(queryText, [req.params.id])
+        .then((result) => {
+            console.log('PUT database query', error);
+            res.sendStatus(201);
+        })
+        .catch((error) => {
+            console.log('Error in PUT', error);
+            res.sendStatus(500);
+        })
+})
 
 // DELETE
 
