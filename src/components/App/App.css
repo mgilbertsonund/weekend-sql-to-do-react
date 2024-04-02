@@ -40,3 +40,35 @@ input {
   margin-bottom: 20px;
   box-sizing: border-box;
 }
+
+.todos {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  width: 100%;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  background-color: rgb(238, 240, 242);
+}
+
+.todoItem, .completeToDo, .deleteToDo {
+  background: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+table { 
+  border-collapse: collapse; 
+  border: 1px solid black; 
+  table-layout: auto; 
+  /* width: 100%; */
+} 
+
+th, td { 
+  border: 1px solid black; 
+}
+

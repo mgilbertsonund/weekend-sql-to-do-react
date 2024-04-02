@@ -13,13 +13,22 @@ function ToDoItem({ todo, getToDoList } ) {
 
     return(
         <>
-        <div className={todo.isDone ? 'true' : 'false'}>
-            {todo.todo + ' ' + todo.isDone}
-            {
-                todo.isDone ?
-                <button onClick={() => toggleToDo(todo.id)}>done</button> :
-                <button onClick={() => toggleToDo(todo.id)}>delete</button>
-            }
+        <div className='todos'>
+            <table>
+                <tbody>
+                    <tr>
+                        <td className='todoItem'>
+                            {todo.todo}
+                        </td>
+                        <td className='completeToDo'>
+                            <button onClick={() => toggleToDo(todo.id)}>Mark Complete</button>
+                        </td>
+                        <td className='deleteToDo'>
+                        <button onClick={() => toggleToDo(todo.id)}>Delete To Do</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         </>
     )
