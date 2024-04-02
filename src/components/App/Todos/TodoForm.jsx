@@ -16,11 +16,15 @@ function ToDoForm({ todo, setInputToDo, getToDoList }) {
 
     return(
         <>
-            <h2>add a task</h2>
-            <form onSubmit={addToDo}>
-                <input type="text" required placeholder="Add New To Do" value={todo} onChange={(e) => setInputToDo(e.target.value)} />
-                <input type="submit" value="What to do today?" />
-            </form>
+            <div className='form-header'>
+                <h2>Add To Dos</h2>
+            </div>
+            <div className='form-container'>
+                <form onSubmit={addToDo}>
+                    <input type="text" required placeholder="What do you have to do today?" value={todo} onChange={(e) => setInputToDo(e.target.value)} />
+                    <input type="submit" value="Add" />
+                </form>
+            </div>
             </>
     )
 }

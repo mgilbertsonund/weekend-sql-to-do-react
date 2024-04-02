@@ -8,9 +8,8 @@ function App () {
 
   return (
     <div>
-      <header>todo App</header>
+      <header>To Do App</header>
       <TodoList />
-
     </div>
   );
 

@@ -32,15 +32,15 @@ function ToDoItem({ todo, getToDoList } ) {
                         <td className='completeToDo'>
                             {
                                 todo.isDone ?
-                                <button style={{backgroundColor: '#f2f2f2', color: '#999', textDecoration: 'line-through'}} onClick={() => toggleToDo(todo.id)}>Mark Complete</button> :
-                                <button onClick={() => toggleToDo(todo.id)}>Mark Complete</button>
+                                <button className='complete-btn' style={{backgroundColor: '#fff', color: '#999', textDecoration: 'line-through'}} onClick={() => toggleToDo(todo.id)}>Mark Complete</button> :
+                                <button className='complete-btn' onClick={() => toggleToDo(todo.id)}>Mark Complete</button>
                             }
                         </td>
                         <td className='deleteToDo'>
                             {
                                todo.isDone ?
-                               <button style={{backgroundColor: '#f2f2f2'}} onClick={() => removeToDo(todo.id)}>Delete</button> :
-                               <button onClick={() => removeToDo(todo.id)}>Delete</button> 
+                               <button className='delete-btn' style={{backgroundColor: '#333', color: '#fff'}} onClick={() => removeToDo(todo.id)}>Delete</button> :
+                               <button className='delete-btn' onClick={() => removeToDo(todo.id)}>Delete</button> 
                             }
                         </td>
                     </tr>
