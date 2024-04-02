@@ -72,3 +72,8 @@ th, td {
   border: 1px solid black; 
 }
 
+.completed {
+  background-color: #f2f2f2; /* Gray background */
+  color: #999; /* Gray text color */
+  text-decoration: line-through; /* Strikethrough text */
+}

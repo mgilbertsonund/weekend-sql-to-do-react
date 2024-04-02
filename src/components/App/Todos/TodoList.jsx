@@ -6,7 +6,6 @@ import TodoItem from './TodoItem.jsx';
 function ToDoList() {
     const [todoList, setToDoList] = useState([]);
     const [inputToDo, setInputToDo] = useState('');
-    const [toDoCompletion, setToDoCompletion] = ('');
 
     const getToDoList = () => {
         axios.get('/api/todo').then(response => {

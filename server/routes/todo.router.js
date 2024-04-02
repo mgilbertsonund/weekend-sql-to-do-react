@@ -49,5 +49,17 @@ router.put('/:id', (req, res) => {
 })
 
 // DELETE
+router.delete('/:id', (req, res) => {
+    const queryText = `DELETE FROM todos WHERE "id" = $1;`;
+    pool.query(queryText, [req.params.id])
+        .then((result) => {
+            console.log(`Deleted todo with id`, req.params.id);
+            res.sendStatus(201);
+        })
+        .catch((error) => {
+            console.log(`Error making database query`, error);
+            res.sendStatus(500);
+        })
+})
 
 module.exports = router;

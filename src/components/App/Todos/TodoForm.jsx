@@ -4,7 +4,7 @@ function ToDoForm({ todo, setInputToDo, getToDoList }) {
     const addToDo = (e) => {
         e.preventDefault();
         console.log('add todo', todo);
-        const data = { todo: todo, isDone: false};
+        const data = { todo: todo, isDone: false };
         axios.post('/api/todo', data).then((response) => {
             getToDoList();
             setInputToDo('');
@@ -19,7 +19,7 @@ function ToDoForm({ todo, setInputToDo, getToDoList }) {
             <h2>add a task</h2>
             <form onSubmit={addToDo}>
                 <input type="text" required placeholder="Add New To Do" value={todo} onChange={(e) => setInputToDo(e.target.value)} />
-                <input type="submit" value="Submit" />
+                <input type="submit" value="What to do today?" />
             </form>
             </>
     )
