@@ -19,9 +19,10 @@ router.get('/', (req, res) => {
 // POST
 router.post('/', (req, res) => {
     const todo = req.body;
+    console.log(req.body);
     const queryText = `INSERT INTO todos
     ("todo", "isDone") VALUES ($1, $2);`;
-    pool.query(queryText, [todo.todo, todo.idDone])
+    pool.query(queryText, [todo.todo, todo.isDone])
         .then((result) => {
             console.log(`Added todo to database`, todo);
             res.sendStatus(201);
