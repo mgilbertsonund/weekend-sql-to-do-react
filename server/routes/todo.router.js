@@ -5,7 +5,7 @@ const pool = require('../modules/pool.js');
 // GET
 router.get('/', (req, res) => {
     console.log('In GET request');
-    const queryText = 'SELECT * FROM todos;';
+    const queryText = 'SELECT * FROM todos ORDER BY "id";';
     pool.query(queryText)
         .then((result) => {
             res.send(result.rows);
@@ -34,12 +34,12 @@ router.post('/', (req, res) => {
 })
 
 // PUT
-router.put('./:id', (req, res) => {
-    const queryText = `UPDATE todos SET "isDone" = NOT "isDone
+router.put('/:id', (req, res) => {
+    const queryText = `UPDATE todos SET "isDone" = NOT "isDone"
     WHERE "id" = $1;`;
     pool.query(queryText, [req.params.id])
         .then((result) => {
-            console.log('PUT database query', error);
+            console.log('PUT database query', req.params.id);
             res.sendStatus(201);
         })
         .catch((error) => {
